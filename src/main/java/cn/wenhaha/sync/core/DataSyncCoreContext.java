@@ -15,6 +15,7 @@ public interface DataSyncCoreContext {
      *      1. 待同步的数据
      *      2. 需要定制的关联关系
      */
+    List<> query(Query query);
 
 
 
