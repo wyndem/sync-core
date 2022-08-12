@@ -1,5 +1,7 @@
 package cn.wenhaha.sync.core;
 
+import cn.wenhaha.datasource.IUserContext;
+
 /**
  *
  * 同步核心上下文
@@ -11,18 +13,15 @@ package cn.wenhaha.sync.core;
 public interface DataSyncCoreContext {
 
     /**
-     *  查询：
-     *      1. 待同步的数据
-     *      2. 需要定制的关联关系
+     *  添加 数据源
+     * @param pluginsId 插件id
+     * @param pluginCode 插件code
+     * @param userContext 对应的数据源
      */
-    List<> query(Query query);
+    void addDataSource(Integer pluginsId,String pluginCode,IUserContext userContext);
 
 
-
-    //更新
-
-
-
+    DataManage dataManage();
 
 
 }

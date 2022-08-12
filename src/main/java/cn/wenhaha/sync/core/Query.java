@@ -1,20 +1,20 @@
 package cn.wenhaha.sync.core;
 
-import java.lang.String;
-import java.lang.Integer;
-import java.lang.Object;
+import lombok.Data;
 
 
 /**
  *  查询体
+ *   可以嵌套
  */
-public class Qurey {
+@Data
+public class Query {
 
     
     /** 字段名 */
     private String name;
     /** 字段类型 */
-    private Integer type;
+    private QueryType type;
     /** 值 */
     private Object  value;
     
