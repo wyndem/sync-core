@@ -49,4 +49,17 @@
 
   </dependencies>
 
+  <distributionManagement>
+    <repository>
+      <name>rdc-releases</name>
+      <id>rdc-releases</id>
+      <url>https://packages.aliyun.com/maven/repository/2184517-release-VmOaKG/</url>
+    </repository>
+    <snapshotRepository>
+      <id>rdc-snapshots</id>
+      <url>https://packages.aliyun.com/maven/repository/2184517-snapshot-Fy7CDW/</url>
+      <name>rdc-snapshots</name>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
