@@ -55,6 +55,7 @@ public abstract class BaseSyncCore  implements  DataSyncCoreContext{
         return this.objectName.get();
     }
 
-
-
+    public Integer getPluginsId() {
+        return this.pluginsId.get();
+    }
 }
