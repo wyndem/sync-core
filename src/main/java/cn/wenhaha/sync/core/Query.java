@@ -13,6 +13,10 @@ public class Query {
     
     /** 字段名 */
     private String name;
+
+    /** 符号 **/
+    private  Signal signal;
+
     /** 字段类型 */
     private QueryType type;
     /** 值 */
