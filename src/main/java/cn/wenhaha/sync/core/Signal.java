@@ -8,7 +8,7 @@ public enum Signal {
     LT("<","小于"),
     LEQ("<=","小于等于"),
     GT(">","大于"),
-    GEQ(">","大于等于")
+    GEQ(">=","大于等于")
     ;
 
     private  String id;
