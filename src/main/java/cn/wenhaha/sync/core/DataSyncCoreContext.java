@@ -40,6 +40,14 @@ public interface DataSyncCoreContext {
      */
     List<Entity> query(List<String> field, List<Query> query);
 
+    /**
+     * 单字段 批量查询
+     * @param field 查询的字段
+     * @param query 查询条件
+     * @return 根据查询条件依次返回
+     */
+    <T> List<T>  batchQuery(String field,List<List<Query>> query);
+
 
     /**
      *  上传数据：
