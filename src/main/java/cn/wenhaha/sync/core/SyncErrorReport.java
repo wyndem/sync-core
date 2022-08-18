@@ -1,5 +1,7 @@
 package cn.wenhaha.sync.core;
 
+import cn.hutool.db.Entity;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -27,8 +29,11 @@ public class SyncErrorReport implements Serializable {
 
     private Date  date;
 
+    private Entity data;
 
-    public SyncErrorReport(Integer pluginsId, String objectName, Integer userId, Serializable dataId, String simpleError, Exception exception) {
+
+    public SyncErrorReport(Entity data,Integer pluginsId, String objectName, Integer userId, Serializable dataId, String simpleError, Exception exception) {
+        this.data = data;
         this.pluginsId = pluginsId;
         this.objectName = objectName;
         this.userId = userId;
@@ -92,5 +97,13 @@ public class SyncErrorReport implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Entity getData() {
+        return data;
+    }
+
+    public void setData(Entity data) {
+        this.data = data;
     }
 }
