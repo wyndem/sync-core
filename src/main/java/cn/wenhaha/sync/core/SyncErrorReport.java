@@ -106,4 +106,8 @@ public class SyncErrorReport implements Serializable {
     public void setData(Entity data) {
         this.data = data;
     }
+
+    public boolean update(){
+        return  dataId!=null;
+    }
 }
