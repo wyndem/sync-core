@@ -22,7 +22,14 @@ public interface DataSyncCoreContext {
      */
     void addDataSource(Integer pluginsId,String pluginCode,IUserContext<?> userContext);
 
-
+    /**
+     * <p>
+     *    支持数据源插件的code
+     * </p>
+     * @Author: Wyndem
+     * @DateTime: 2022-08-29 20:02
+     */
+    String[] supportPluginsCode();
 
     /**
      * 调用之前事件
