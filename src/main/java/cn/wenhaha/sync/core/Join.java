@@ -17,7 +17,7 @@ public enum Join {
     }
 
 
-    public Join findByJoin(String v){
+    public static Join findByJoin(String v){
         for (Join q:values()) {
             if (q.value.equals(v)){
                 return  q;

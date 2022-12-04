@@ -14,23 +14,23 @@ import java.util.Map;
  */
 public abstract class BaseSyncCore  implements  DataSyncCoreContext{
 
-    private final Map<Integer,IUserContext<?>> userContextMap = new HashMap<>(2);
+    private final Map<String,IUserContext<?>> userContextMap = new HashMap<>(2);
 
     private final ThreadLocal<Integer> userId = new ThreadLocal<Integer>();
     private final ThreadLocal<String> objectName = new ThreadLocal<String>();
-    private final ThreadLocal<Integer> pluginsId = new ThreadLocal<Integer>();
+    private final ThreadLocal<String> pluginsCode = new ThreadLocal<String>();
 
 
     @Override
-    public void addDataSource(Integer pluginsId, String pluginCode, IUserContext<?> userContext) {
-        userContextMap.put(pluginsId,userContext);
+    public void addDataSource( String pluginCode, IUserContext<?> userContext) {
+        userContextMap.put(pluginCode,userContext);
     }
 
     @Override
-    public void beforeEvent(Integer userId, String objectName, Integer pluginsId) {
+    public void beforeEvent(Integer userId, String objectName,String pluginCode) {
         this.userId.set(userId);
         this.objectName.set(objectName);
-        this.pluginsId.set(pluginsId);
+        this.pluginsCode.set(pluginCode);
     }
 
 
@@ -38,11 +38,11 @@ public abstract class BaseSyncCore  implements  DataSyncCoreContext{
     public void afterEvent() {
         this.userId.remove();
         this.objectName.remove();
-        this.pluginsId.remove();
+        this.pluginsCode.remove();
     }
 
     public  <T>  IUserContext<T> getUserContext(){
-        return (IUserContext<T>) userContextMap.get(this.pluginsId.get());
+        return (IUserContext<T>) userContextMap.get(this.pluginsCode.get());
     }
 
 
@@ -55,7 +55,7 @@ public abstract class BaseSyncCore  implements  DataSyncCoreContext{
         return this.objectName.get();
     }
 
-    public Integer getPluginsId() {
-        return this.pluginsId.get();
+    public String getPluginCode() {
+        return this.pluginsCode.get();
     }
 }

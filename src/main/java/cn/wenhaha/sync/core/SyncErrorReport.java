@@ -13,15 +13,9 @@ import java.util.Date;
  * @author ：wyndem
  * @Date ：Created in 2022-08-15 22:15
  */
-public class SyncErrorReport implements Serializable {
+public class SyncErrorReport extends SyncReport implements Serializable {
 
-    private Integer pluginsId;
 
-    private String objectName;
-
-    private Integer userId;
-
-    private Serializable dataId;
 
     private String simpleError;
 
@@ -31,49 +25,16 @@ public class SyncErrorReport implements Serializable {
 
     private Entity data;
 
-
-    public SyncErrorReport(Entity data,Integer pluginsId, String objectName, Integer userId, Serializable dataId, String simpleError, Exception exception) {
-        this.data = data;
-        this.pluginsId = pluginsId;
-        this.objectName = objectName;
-        this.userId = userId;
-        this.dataId = dataId;
+    public SyncErrorReport(String pluginsCode, String objectName, Integer userId, Serializable dataId, String simpleError, Exception exception, Entity data) {
+        super(pluginsCode, objectName, userId, dataId);
         this.simpleError = simpleError;
         this.exception = exception;
         this.date = new Date();
+        this.data = data;
     }
 
-    public Integer getPluginsId() {
-        return pluginsId;
-    }
 
-    public void setPluginsId(Integer pluginsId) {
-        this.pluginsId = pluginsId;
-    }
 
-    public String getObjectName() {
-        return objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Serializable getDataId() {
-        return dataId;
-    }
-
-    public void setDataId(Serializable dataId) {
-        this.dataId = dataId;
-    }
 
     public String getSimpleError() {
         return simpleError;
@@ -107,7 +68,5 @@ public class SyncErrorReport implements Serializable {
         this.data = data;
     }
 
-    public boolean update(){
-        return  dataId!=null;
-    }
+
 }

@@ -25,7 +25,7 @@ public enum QueryType {
     }
 
 
-    public QueryType findByQueryType(Integer id){
+    public static QueryType findByQueryType(Integer id){
         for (QueryType q:values()) {
             if (q.id.equals(id)){
                 return  q;

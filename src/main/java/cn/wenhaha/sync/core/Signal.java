@@ -29,7 +29,7 @@ public enum Signal {
     }
 
 
-    public Signal findBySignal(String id){
+    public static Signal findBySignal(String id){
         for (Signal q:values()) {
             if (q.id.equals(id)){
                 return  q;
