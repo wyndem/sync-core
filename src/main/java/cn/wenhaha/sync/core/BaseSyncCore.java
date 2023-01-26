@@ -22,15 +22,15 @@ public abstract class BaseSyncCore  implements  DataSyncCoreContext{
 
 
     @Override
-    public void addDataSource( String pluginCode, IUserContext<?> userContext) {
-        userContextMap.put(pluginCode,userContext);
+    public void addDataSource( String pluginId, IUserContext<?> userContext) {
+        userContextMap.put(pluginId,userContext);
     }
 
     @Override
-    public void beforeEvent(Integer userId, String objectName,String pluginCode) {
+    public void beforeEvent(Integer userId, String objectName,String pluginId) {
         this.userId.set(userId);
         this.objectName.set(objectName);
-        this.pluginsCode.set(pluginCode);
+        this.pluginsCode.set(pluginId);
     }
 
 

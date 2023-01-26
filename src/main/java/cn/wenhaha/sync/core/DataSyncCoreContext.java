@@ -2,6 +2,8 @@ package cn.wenhaha.sync.core;
 
 import cn.hutool.db.Entity;
 import cn.wenhaha.datasource.IUserContext;
+import org.pf4j.ExtensionPoint;
+
 import java.util.List;
 
 /**
@@ -12,15 +14,14 @@ import java.util.List;
  * @author ：wyndem
  * @Date ：Created in 2022-08-11 21:12
  */
-public interface DataSyncCoreContext {
+public interface DataSyncCoreContext extends ExtensionPoint {
 
     /**
      *  添加 数据源
-     * @param pluginsId 插件id
-     * @param pluginCode 插件code
+     * @param pluginId 插件id
      * @param userContext 对应的数据源
      */
-    void addDataSource(String pluginCode,IUserContext<?> userContext);
+    void addDataSource(String pluginId,IUserContext<?> userContext);
 
 
     /**
